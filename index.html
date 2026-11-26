@@ -1,25 +1,79 @@
 <!DOCTYPE html>
-<html lang=""en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zachary Miller | Mechatronics Engineering</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
+    <div class="layout">
+    <aside class="sidebar">
         <h1>Zachary Miller</h1>
-        <p>Mechatronics Engineering student at Kent State University</p>
-    </header>
+        <p class="major">Mechatronics Engineering, Kent State University</p>
+        <p>Short about me paragraph.</p>
+        <nav>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="resume.pdf">Resume</a>
+        </nav>
+    </aside>
 
     <main>
+        <div class="workspace">
+
         <section id="projects">
-            <h2>Projects</h2>
+            <h2>Projects</h2> 
+            <div class="project-grid">
+
+                <a class="card" href="#rocket-payload">
+                <img src="assets/rocket-payload.jpg" alt="Rocket payload CAD render">
+                <div class="card-body">
+                    <h3>Rocket Payload</h3>
+                    <p>Developed a payload with an integrated vaucum system.</p>
+                    <span class="tag">Onshape</span>
+                    <span class="tag">CAD</span>
+                </div>
+                </a>
+
+                <a class="card" href="#snatchforce-calculator">
+                <img src="assets/rocket-payload.jpg" alt="Rocket payload CAD render">
+                <div class="card-body">
+                    <h3>Snatchforce Calculator</h3>
+                    <p>Developed a program to estimate max force on the shockcord.</p>
+                    <span class="tag">Onshape</span>
+                    <span class="tag">CAD</span>
+                </div>
+                </a>
+
+            </div>
         </section>
+        <div class="detail-pane">
+
+            <article class="project-detail" id="rocket-payload" hidden>
+                <h2>Rocket Payload</h2>
+                <p>Your full description goes here.</p>
+            </article>
+
+            <article class="project-detail" id="snatchforce-calculator" hidden>
+                <h2>Snatchforce Calculator</h2>
+                <p>Full description goes here.</p>
+            </article>
+        </div>
+        </div>
 
         <section id="contact">
             <h2>Contacts</h2>
         </section>
     </main>
+    </div>
 </body>
 </html>

@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #1e2127;
+    --surface: #282c34;
+    --border: #3a3f4a;
+    --text: #d4d4d4;
+    --muted: #9aa0a6;
+    --accent: #6cb6ff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+main{
+    max-width: 1000px;
+    padding: 2rem 1rem;
+}
+
+footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    line-height: 1.25;
+    color: #ececec;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Project cards */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    text-decoration: none;
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body h3 {
+    margin-bottom: 0.5rem;
+}
+
+.card-body p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Tech tags */
+.tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.1rem 0.5rem;
+    margin: 0 0.25rem 0.25rem 0;
+}
+
+/* Project pages */
+.project img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    background: var(--surface);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 3rem 2rem;
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+}
+
+.sidebar nav a {
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.major {
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.workspace.has-detail {
+    grid-template-columns: 280px 1fr;
+}
+
+.workspace.has-detail .project-grid {
+    grid-template-columns: 1fr;
+}
+
+.workspace.has-detail .card p,
+.workspace.has-detail .card .tag {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    .workspace.has-detail {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .card {
+        grid-template-columns: 1fr;
+    }
+    .card img {
+        height: 180px;
+    }
+}

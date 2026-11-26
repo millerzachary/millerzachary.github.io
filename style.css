@@ -76,7 +76,8 @@ a:hover {
 }
 
 .card {
-    display: block;
+    display: grid;
+    grid-template-columns: 240px 1fr;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
@@ -95,7 +96,8 @@ a:hover {
 .card img {
     display: block;
     width: 100%;
-    height: 180px;
+    height: 100%;
+    min-height: 160px;
     object-fit: cover;
 }
 
@@ -165,22 +167,62 @@ code {
 }
 
 .workspace {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    display: flex;
 }
 
-.workspace.has-detail {
-    grid-template-columns: 280px 1fr;
+#projects {
+    flex: 0 0 100%;
+    min-width: 0;
+    transition: flex-basis 0.4s ease;
+}
+
+.detail-pane {
+    flex: 1;
+    min-width: 0;
+    transition: margin-left 0.4s ease;
+}
+
+.workspace.has-detail #projects {
+    flex-basis: 280px;
+}
+
+.workspace.has-detail .detail-pane {
+    margin-left: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid var(--border);
 }
 
 .workspace.has-detail .project-grid {
     grid-template-columns: 1fr;
 }
 
-.workspace.has-detail .card p,
-.workspace.has-detail .card .tag {
-    display: none;
+.workspace.has-detail .card {
+    grid-template-columns: 1fr;
+}
+
+.workspace.has-detail .card img {
+    height: 180px;
+}
+
+.project-detail {
+    animation: slide-in 0.3s ease-out;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(600px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-detail {
+        animation: none;
+    }
 }
 
 @media (max-width: 800px) {
@@ -196,7 +238,25 @@ code {
     .workspace.has-detail {
         grid-template-columns: 1fr;
     }
+    .workspace {
+    flex-direction: column;
 }
+
+    #projects,
+    .workspace.has-detail #projects {
+        flex: 0 0 auto;
+    }
+
+    .workspace.has-detail .detail-pane {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+    }
+}
+
 
 /* Phones */
 @media (max-width: 600px) {
